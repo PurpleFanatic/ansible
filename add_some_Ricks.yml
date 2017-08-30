@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+  - name: oh jeeezz Rick!
+    user: name={{ item.name }} state=present group={{ item.groups }} home={{ item.home}} shell={{ item.shell }}
+    with_items:
+    - { name: 'Rick', groups: 'adm', home: '/home/sanchez', shell: '/bin/bash' }
+    - { name: 'Morty', groups: 'users', home: '/var/tmp/morty', shell: '/bin/sh' }
+    - { name: 'Beth', groups: 'users', home: '/home/beth', shell: '/bin/sh' }
+    - { name: 'Jerry', groups: 'users', home: '/home/Jerry', shell: '/bin/bash' }
+    - { name: 'Summer', groups: 'users', home: '/home/Summer', shell: '/bin/sh' }
+    sudo: yes
